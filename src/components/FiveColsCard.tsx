@@ -23,7 +23,7 @@ const FiveColsCard = ({ title }: FiveColsCardProps) => {
                 alt="poster"
               />
               <div
-                className="hidden md:block py-[10px] absolute opacity-0 group-hover:opacity-[100] top-1/2 left-0 p-[15px] shadow-sm shadow-white/50
+                className="hidden md:flex items-start flex-col justify-center py-[10px] absolute opacity-0 group-hover:opacity-[100] top-1/2 left-0 p-[15px] shadow-sm shadow-white/50
                   translate-y-[-50%] w-[calc(200%+15px)] h-[100%] bg-bgcolor z-[-1] group-hover:z-[100] transition-all duration-300 border-l-[2px] border-bgred"
               >
                 <h3 className="text-base font-bold mb-[15px]">Prison Break</h3>
