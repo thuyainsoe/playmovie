@@ -1,0 +1,16 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  @apply bg-bgcolor text-white;
+}
+
+.main-container {
+  @apply px-[6%] lg:px-[9%] xl:px-[12.5183%];
+}
