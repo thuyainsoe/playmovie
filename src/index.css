@@ -12,5 +12,5 @@ body {
 }
 
 .main-container {
-  @apply px-[6%] lg:px-[9%] xl:px-[12.5183%];
+  @apply px-[10px] md:px-[6%] lg:px-[9%] xl:px-[12.5183%];
 }

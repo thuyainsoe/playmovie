@@ -1,101 +1,48 @@
-/* eslint-disable @typescript-eslint/ban-ts-comment */
-import poster1 from "@/assets/movie/poster1.png";
-import { StarIcon } from "@/components/Icon";
-import { Autoplay, Navigation } from "swiper/modules";
-import { Swiper, SwiperSlide, useSwiper } from "swiper/react";
-// @ts-ignore
-import "swiper/css";
-// @ts-ignore
-import "swiper/css/pagination";
-// @ts-ignore
-import "swiper/css/navigation";
-import SlideNextButton from "@/components/SlideNextButton";
-import SlidePrevButton from "@/components/SlidePrevButton";
+import ads1 from "@/assets/ads/ads1.png";
+import ContentAtRandom from "@/components/ContentAtRandom";
+import FiveColsCard from "@/components/FiveColsCard";
+
+const movieCategories = [
+  "Action",
+  "Comedy",
+  "Drama",
+  "Science",
+  "Horror",
+  "Romance",
+  "Fantasy",
+  "Thriller",
+  "Animation",
+  "Documentary",
+];
 
 const Home = () => {
-  const swiper = useSwiper();
-
-  console.log(swiper, "swiper");
-
   return (
-    <div className="main-container ">
-      <div className="w-full bg-black2 py-[10px] px-[10px] flex flex-col gap-[20px] rounded-[4px] relative">
-        <h3 className="text-xl relative">Content at random</h3>
-        <div>
-          <Swiper
-            slidesPerView={1}
-            spaceBetween={20}
-            loop={true}
-            autoplay={{
-              delay: 2500,
-            }}
-            pagination={{
-              clickable: true,
-            }}
-            breakpoints={{
-              340: {
-                slidesPerView: 2,
-                spaceBetween: 20,
-              },
-              540: {
-                slidesPerView: 3,
-                spaceBetween: 20,
-              },
-              640: {
-                slidesPerView: 4,
-                spaceBetween: 20,
-              },
-              768: {
-                slidesPerView: 5,
-                spaceBetween: 20,
-              },
-              1024: {
-                slidesPerView: 6,
-                spaceBetween: 20,
-              },
-              1284: {
-                slidesPerView: 7,
-                spaceBetween: 20,
-              },
-            }}
-            modules={[Autoplay, Navigation]}
-            navigation={{ nextEl: "#swiper-forward", prevEl: "#swiper-back" }}
-            className="mySwiper !pt-[55px] mt-[-55px]"
-          >
-            {[...Array(15)].map((_, index) => (
-              <SwiperSlide
-                key={index}
-                className="shadow-sm shadow-white rounded-[4px] cursor-pointer"
-              >
-                <div>
-                  <img
-                    className="aspect-[109_/_152] object-cover"
-                    src={poster1}
-                    alt=""
-                  />
-                  <div className="w-full p-[5px]">
-                    <p className="line-clamp-1 text-sm">
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                      Eius, sequi!
-                    </p>
-                    <span className="text-xs text-textgray2 font-bold">
-                      2019
-                    </span>
-                    <div className="flex items-center gap-[3px]">
-                      <span className="block w-[15px] h-[15px]">
-                        <StarIcon />
-                      </span>
-                      <span className="text-xs">5.8</span>
-                    </div>
-                  </div>
-                </div>
-              </SwiperSlide>
-            ))}
-            <div className="absolute top-0 right-0">
-              <SlidePrevButton />
-              <SlideNextButton />
-            </div>
-          </Swiper>
+    <div className="main-container">
+      <ContentAtRandom />
+      {/* Movies */}
+      <div className="w-full grid grid-cols-4 gap-[20px] mt-[20px]">
+        {/* left section */}
+        <div className="col-[1/5] md:col-[1/4] w-full flex flex-col gap-[20px]">
+          <FiveColsCard title="Movies" />
+          <FiveColsCard title="Series" />
+        </div>
+        {/* right section */}
+        <div className="col-[4/5] hidden md:block">
+          {/* category */}
+          <div className="mb-[20px] p-[20px] bg-black2 flex flex-col items-start gap-[20px]">
+            <h3 className="text-xl relative">Categories</h3>
+            <ul className="list-disc list-inside  flex flex-col gap-[10px] text-sm">
+              {movieCategories.map((item, index) => (
+                <li
+                  className="hover:text-bgred cursor-pointer transition-all duration-200"
+                  key={index}
+                >
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+          <img className="w-full h-auto" src={ads1} alt="" />
         </div>
       </div>
     </div>
